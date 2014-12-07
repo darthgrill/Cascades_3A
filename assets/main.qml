@@ -40,13 +40,17 @@ Page {
             accessibility.name: "Background"
         }
         Container {
-            verticalAlignment: VerticalAlignment.Center
+            verticalAlignment: VerticalAlignment.Top
             horizontalAlignment: HorizontalAlignment.Center
-            
+
             Container {
+                leftPadding: 10
                 layout: StackLayout {
                     orientation: LayoutOrientation.LeftToRight
                 }
+                rightPadding: 10.0
+                bottomPadding: 20.0
+                topPadding: 15.0
                 TextField {
                     id: txtfahrenheit
                     hintText: "Fahrenheit Input"
@@ -65,13 +69,32 @@ Page {
                     textStyle.color: Color.Black
                 }
             }
+            Container {
 
-            Button {
-                text: "Convert"
-                topMargin: 55.0
-                horizontalAlignment: HorizontalAlignment.Fill
-                onClicked: {
-                    lblcelsius.text = root.convertToCelsius(txtfahrenheit.text);
+                layout: StackLayout {
+                    orientation: LayoutOrientation.LeftToRight
+                }
+                leftPadding: 10.0
+                rightPadding: 10.0
+                Button {
+                    text: "Convert"
+                    topMargin: 55.0
+                    horizontalAlignment: HorizontalAlignment.Fill
+                    onClicked: {
+                        lblcelsius.text = root.convertToCelsius(txtfahrenheit.text);
+                    }
+                    layoutProperties: StackLayoutProperties {
+                        spaceQuota: 2.0
+
+                    }
+                }
+
+                Button {
+                    text: "Close"
+                    layoutProperties: StackLayoutProperties {
+                        spaceQuota: 1.0
+
+                    }
                 }
             }
 
